@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="rdmedia" method="upgrade">
+	<name>plg_rdmedia_tjsendy</name>
+	<author>Techjoomla</author>
+	<creationDate>18th Octobar 2019</creationDate>
+	<copyright>Copyright (C) 2009 - 2020 Techjoomla. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>extensions@techjoomla.com</authorEmail>
+	<authorUrl>https://techjoomla.com</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_RDMEDIA_SENDY_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="tjsendy">tjsendy.php</filename>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_rdmedia_tjsendy.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_rdmedia_tjsendy.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="widget" label="COM_PLUGINS_BASIC_FIELDSET_LABEL">
+                <field name="api_key" type="text" label="PLG_TJSENDY_API_KEY" description="Enter your API Key, available in Settings" />
+				<field name="sendy_url" type="text" label="Sendy Url"/>
+
+				<field
+					name="field-name"
+					type="subform"
+					label="PLG_TJSENDY_ID_FIELD"
+					multiple="true"
+					min="1"
+					max="10"
+					>
+					<form>
+						<field
+							name="category"
+							type="sql"
+							default="10"
+							label="PLG_TJSENDY_PRODUCT_CATEGORY"
+							query="SELECT id, name FROM #__rd_subs_categories"
+							key_field="id"
+							value_field="name"
+							/>
+						<field
+							name="listid"
+							type="textarea"
+							label="PLG_TJSENDY_LIST_ID"
+							cols="40"
+							rows="8"
+							/>
+					</form>
+				</field>
+			</fieldset>
+		</fields>
+    </config>
+</extension>
